@@ -12,9 +12,9 @@
           <h1 class="display-1 font-weight-thin mb-4">
             {{ header }}
           </h1>
-          <h4 class="subheading">
+          <p class="subheading">
             {{ caption }}
-          </h4>
+          </p>
         </v-col>
       </v-row>
       <v-row

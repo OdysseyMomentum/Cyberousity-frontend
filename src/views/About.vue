@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import NavigationBar from "@/components/NavigationBar";
+import NavigationBar from "@/components/outline/NavigationBar";
 export default {
   components: {NavigationBar}
 }

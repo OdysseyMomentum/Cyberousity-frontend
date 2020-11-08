@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <NavigationBar />
-    <WelcomeSign />
+    <WelcomeSign header="Welcome to Cyberousity!" caption="Help the community to protected each other from cyber crime"/>
   </div>
 </template>
 
@@ -10,7 +10,6 @@
 
 import NavigationBar from "@/components/NavigationBar";
 import WelcomeSign from "@/components/WelcomeSign";
-
 
 export default {
   name: 'Home',

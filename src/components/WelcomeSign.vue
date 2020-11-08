@@ -10,10 +10,10 @@
             cols="12"
         >
           <h1 class="display-1 font-weight-thin mb-4">
-            Welcome to Cyberousity!
+            {{ header }}
           </h1>
           <h4 class="subheading">
-            Join our community against cyber crime
+            {{ caption }}
           </h4>
         </v-col>
       </v-row>
@@ -33,8 +33,7 @@
 
 export default {
 name: "WelcomeSign",
-  data: () => {
-  }
+  props: ['caption' ,'header']
 }
 </script>
 

@@ -2,8 +2,8 @@
   <v-app-bar>
     <v-row id="nav" class="d-none d-lg-flex d-xl-flex d-md-flex d-sm-flex">
       <v-col cols="8">
-        <router-link to="/"><v-btn color="primary" text medium> Home </v-btn></router-link>
-        <router-link to="/about"><v-btn color="primary" text medium> About </v-btn></router-link>
+        <v-btn @click="goTo('/')" color="primary" text medium> Home </v-btn>
+        <v-btn @click="goTo('/about')" color="primary" text medium> About </v-btn>
       </v-col>
       <!-- The login button -->
       <v-col cols="4" align="right">
@@ -17,6 +17,9 @@
 export default {
 name: "NavigationBar",
   methods: {
+    goTo(path) {
+      this.$router.push({ path })
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <NavigationBar />
+<!--    <NavigationBar />-->
     <WelcomeSign header="Welcome to Cyberousity!" caption="Help the community to protected each other from cyber crime"/>
     <LoginPad />
   </div>
@@ -9,7 +9,7 @@
 <script>
 // @ is an alias to /src
 
-import NavigationBar from "@/components/outline/NavigationBar";
+// import NavigationBar from "@/components/outline/NavigationBar";
 import WelcomeSign from "@/components/outline/WelcomeSign";
 import LoginPad from "@/components/outline/LoginPad";
 
@@ -18,7 +18,7 @@ export default {
   components: {
     LoginPad,
     WelcomeSign,
-    NavigationBar
+    // NavigationBar
   }
 }
 </script>

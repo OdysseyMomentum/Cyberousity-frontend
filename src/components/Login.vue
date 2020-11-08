@@ -42,7 +42,7 @@
     </v-form>
     <!-- Register area -->
     <v-row justify="center">
-        <a class="t-text-link"> Forgot password? </a>
+        <a class="main-text"> Forgot password? </a>
     </v-row>
 
     <v-row class="pa-6">

@@ -15,5 +15,6 @@ export default new Vuetify({
                 shade: colors.blue.lighten5
             },
         },
+        options: { customProperties: true },
     },
 });

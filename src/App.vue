@@ -17,3 +17,9 @@ export default {
   },
 };
 </script>
+
+<style>
+  .main-text {
+    color: var(--v-primary-base);
+  }
+</style>

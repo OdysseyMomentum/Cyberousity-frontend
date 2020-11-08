@@ -18,48 +18,50 @@
           </v-row>
         </v-col>
 
-        <!-- Login here -->
         <v-col class="pa-10">
           <v-sheet
               elevation="4"
               color="white"
               rounded="lg"
-              class="pa-5"
+              class="pa-10"
           >
-            <Login />
+              <!-- Login here -->
+            <v-row>
+              <Login />
+            </v-row>
+
+            <!-- Divide register and login -->
+            <v-row class="pa-6">
+              <v-divider></v-divider>
+            </v-row>
+
+            <!-- Register area -->
+            <v-row justify="center">
+              <v-btn
+                  @click="isRegistering = true"
+                  large depressed
+                  color="secondary"
+                  min-width="60%"
+              >
+                Create account
+              </v-btn>
+            </v-row>
           </v-sheet>
         </v-col>
       </v-row>
-
-    <!-- Divide register and login -->
-    <v-row class="pa-6">
-      <v-divider></v-divider>
-    </v-row>
-
-    <!-- Register area -->
-    <v-row justify="center">
-      <v-btn
-          @click="isRegistering = true"
-          large depressed
-          color="secondary"
-          min-width="60%"
-      >
-        Create account
-      </v-btn>
-    </v-row>
   </v-container>
   </v-sheet>
 
 
-  <!-- Registering here -->
-  <v-overlay :value="isRegistering">
+  <!-- Registering overlay here -->
+  <v-overlay color="white" :value="isRegistering">
     <v-sheet
         elevation="4"
         light
         rounded="lg"
         class="pa-5"
     >
-      <Register />
+      <Register @close="close" />
     </v-sheet>
   </v-overlay>
 
@@ -76,6 +78,11 @@ name: "LoginPad",
   data: () => ({
     isRegistering: false
   }),
+  methods: {
+    close() {
+      this.isRegistering = false
+    }
+  }
 }
 </script>
 

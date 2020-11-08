@@ -14,7 +14,8 @@
         <v-text-field
             v-model="email"
             :rules="emailRules"
-            label="E-mail"
+            placeholder="E-mail"
+            filled
             required
         ></v-text-field>
       </v-row>
@@ -23,7 +24,8 @@
             v-model="password"
             type="password"
             :rules="passwordRules"
-            label="Password"
+            placeholder="Password"
+            filled
             required
         ></v-text-field>
       </v-row>

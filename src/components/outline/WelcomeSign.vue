@@ -21,7 +21,7 @@
           class="pa-0"
       >
         <v-col align="center">
-          <v-btn color="white" outlined> Report a crime </v-btn>
+          <v-btn large color="white" outlined> Report a crime </v-btn>
         </v-col>
       </v-row>
 

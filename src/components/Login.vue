@@ -9,32 +9,37 @@
         class="mb-2"
         ref="form"
         v-model="valid"
-        :lazy-validation="isLazy">
+        lazy-validation>
+
+<!--   Email   -->
       <v-row justify="center">
         <v-text-field
-            v-model="email"
-            :rules="emailRules"
+            v-model="details.email"
+            :rules="rules.email"
             placeholder="E-mail"
             filled
-            required
         ></v-text-field>
       </v-row>
+
+    <!--  Password -->
       <v-row justify="center">
         <v-text-field
-            v-model="password"
+            v-model="details.password"
             type="password"
-            :rules="passwordRules"
+            :rules="rules.password"
             placeholder="Password"
             filled
-            required
         ></v-text-field>
       </v-row>
+
+<!--  Submit -->
       <v-row justify="center">
         <v-btn
             @click="validate"
             large depressed
             color="primary"
             min-width="100%"
+            :disabled="!valid"
         >
           Login
         </v-btn>
@@ -56,24 +61,27 @@ export default {
   data: () => ({
     isRegistering: false,
     valid: true,
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    password: '',
-    passwordRules: [
-      v => !!v || 'Password is required',
-    ],
+
+    // Credential details
+    details: {
+      email: '',
+      password: '',
+    },
+
+    // Validation rules
+    rules: {
+      password: [v => !!v || 'Password is required'],
+      email: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+    },
+
     select: null,
-    isLazy: false,
   }),
-  methods: { // TODO remove loggings
+  methods: {
     validate () {
-      console.log({
-        email: this.email,
-        password: this.password
-      })
+      this.$refs.form.validate()
     },
   }
 }

@@ -78,7 +78,7 @@
         <v-col class="pt-0 pb-0">
           <v-select
               v-model="details.date.month"
-              :items="months"
+              :items="selectors.months"
               :rules="[v => !!v || 'Required']"
               placeholder="Month"
               filled
@@ -139,8 +139,22 @@
             color="secondary"
             min-width="30%"
             :disabled="!valid"
+            v-if="!isRegistering"
         >
           Sign up
+        </v-btn>
+        <!-- Loading -->
+        <v-btn
+            large depressed
+            color="secondary"
+            min-width="30%"
+            disabled
+            v-if="isRegistering"
+        >
+          <v-progress-circular
+              indeterminate
+              color="white"
+          ></v-progress-circular>
         </v-btn>
       </v-row>
 
@@ -155,18 +169,24 @@
 export default {
   name: "Register",
 
-  computed : {
+  computed: {
     years () {
       const year = new Date().getFullYear()
       return Array.from({length: year - 1900}, (value, index) => 1901 + index).reverse()
+    },
+    days () {
+      return [...Array(31).keys()].map((x) => {return ++x;});
     }
   },
 
   data: () => ({
     valid: true,
     data: {},
-    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    days: [...Array(31).keys()].map((x) => {return ++x;}),
+    isRegistering: false,
+
+    selectors: {
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    },
 
     // Credential details
     details: {
@@ -198,9 +218,33 @@ export default {
     },
     validate () {
       if (this.$refs.form.validate()) {
-        console.log(this.details);
+        this.register();
       }
     },
+    register() {
+      this.isRegistering = true;
+      // Standardise the date
+      let stdDate = new Date(parseInt(this.details.date.year), this.selectors.months.indexOf(this.details.month), parseInt(this.details.date.day));
+      // Sign up
+      this.axios.post(this.$apiURI + 'users/signup', {
+        fname: this.details.fname,
+        lname: this.details.lname,
+        email: this.details.email,
+        password: this.details.password,
+        birthday: stdDate,
+        gender: this.details.gender,
+      })
+      .then(res => {
+        if (res.status === 201) {
+          console.log('User was registered!');
+        }
+        this.isRegistering = false;
+        this.close();
+      }).catch(e => {
+        console.log('Failed to sign up ' + e);
+        this.isRegistering = false;
+      })
+    }
   }
 }
 </script>

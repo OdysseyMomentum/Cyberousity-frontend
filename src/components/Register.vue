@@ -237,10 +237,26 @@ export default {
         if (res.status === 201) {
           console.log('User was registered!');
         }
-        this.isRegistering = false;
+        this.login(this.details);
         this.close();
       }).catch(e => {
         console.log('Failed to sign up ' + e);
+        this.isRegistering = false;
+      });
+    }, // Automatic login
+    login(details) {
+      this.isLoggingIn = true;
+      // Login
+      this.axios.post(this.$apiURI + 'users/login', {
+        email: details.email,
+        password: details.password
+      }).then(res => {
+        if (res.status === 200) {
+          console.log('User was logged in!');
+        }
+        this.isRegistering = false;
+      }).catch(e => {
+        console.log('Login failed!' + e);
         this.isRegistering = false;
       });
     }

@@ -34,7 +34,7 @@
 
 // import NavigationBar from "@/components/outline/NavigationBar";
 import WelcomeSign from "@/components/outline/WelcomeSign";
-import LoginPad from "@/components/outline/AccessPad";
+import LoginPad from "@/components/AccessPad";
 
 export default {
   name: 'Home',

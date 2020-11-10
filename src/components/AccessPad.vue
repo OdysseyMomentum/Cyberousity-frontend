@@ -52,12 +52,12 @@ export default {
 name: "LoginPad",
   components: {Register, Login},
   data: () => ({
-    isRegistering: false
+    isRegistering: false,
   }),
   methods: {
     close() {
       this.isRegistering = false
-    }
+    },
   }
 }
 </script>

@@ -40,8 +40,21 @@
             color="primary"
             min-width="100%"
             :disabled="!valid"
+            v-if="!isLoggingIn"
         >
           Login
+        </v-btn>
+        <!-- Loading -->
+        <v-btn
+            large depressed
+            min-width="100%"
+            disabled
+            v-if="isLoggingIn"
+        >
+          <v-progress-circular
+              indeterminate
+              color="white"
+          ></v-progress-circular>
         </v-btn>
       </v-row>
 
@@ -59,7 +72,7 @@
 export default {
   name: 'Login',
   data: () => ({
-    isRegistering: false,
+    isLoggingIn: false,
     valid: true,
 
     // Credential details
@@ -81,8 +94,26 @@ export default {
   }),
   methods: {
     validate () {
-      this.$refs.form.validate()
+      if(this.$refs.form.validate()) {
+        this.login(this.details);
+      }
     },
+    login(details) {
+      this.isLoggingIn = true;
+      // Login
+      this.axios.post(this.$apiURI + 'users/login', {
+        email: details.email,
+        password: details.password
+      }).then(res => {
+        if (res.status === 200) {
+          console.log('User was logged in!');
+          this.isLoggingIn = false;
+        }
+      }).catch(e => {
+        console.log('Login failed!' + e);
+        this.isLoggingIn = false;
+      });
+    }
   }
 }
 </script>

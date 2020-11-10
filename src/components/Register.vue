@@ -146,7 +146,6 @@
         <!-- Loading -->
         <v-btn
             large depressed
-            color="secondary"
             min-width="30%"
             disabled
             v-if="isRegistering"
@@ -243,7 +242,7 @@ export default {
       }).catch(e => {
         console.log('Failed to sign up ' + e);
         this.isRegistering = false;
-      })
+      });
     }
   }
 }

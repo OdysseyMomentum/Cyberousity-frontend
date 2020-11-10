@@ -165,6 +165,8 @@
 </template>
 
 <script>
+import {AUTH_REQUEST} from "@/store/actions/auth";
+
 export default {
   name: "Register",
 
@@ -245,19 +247,12 @@ export default {
       });
     }, // Automatic login
     login(details) {
-      this.isLoggingIn = true;
-      // Login
-      this.axios.post(this.$apiURI + 'users/login', {
-        email: details.email,
-        password: details.password
-      }).then(res => {
-        if (res.status === 200) {
-          console.log('User was logged in!');
-        }
+      this.$store.dispatch(AUTH_REQUEST, details)
+          .then(() =>{
+            this.isRegistering = false;
+          }).catch(e => {
         this.isRegistering = false;
-      }).catch(e => {
-        console.log('Login failed!' + e);
-        this.isRegistering = false;
+        console.log(e);
       });
     }
   }

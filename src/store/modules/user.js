@@ -1,5 +1,6 @@
 import { USER_REQUEST, USER_ERROR, USER_SUCCESS } from "../actions/user";
 import { AUTH_LOGOUT } from "../actions/auth";
+import app from "@/main";
 
 const state = { status: "", profile: {} };
 
@@ -12,7 +13,7 @@ const actions = {
     // Pass a requester function in the payload
     [USER_REQUEST]: ({ commit, dispatch }, config) => {
         commit(USER_REQUEST);
-        this.axios.request(config)
+        app.axios.request(config)
         .then(res => {
             commit(USER_SUCCESS, res);
             return res;

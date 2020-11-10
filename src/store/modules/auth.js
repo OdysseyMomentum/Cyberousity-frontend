@@ -1,3 +1,4 @@
+
 import {
     AUTH_REQUEST,
     AUTH_ERROR,
@@ -5,6 +6,7 @@ import {
     AUTH_LOGOUT
 } from "../actions/auth";
 import {USER_REQUEST} from "@/store/actions/user";
+import app from "@/main";
 
 const state = {
     token: localStorage.getItem('user-token') || '',
@@ -22,7 +24,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             commit(AUTH_REQUEST);
             // Login by requesting the API
-            this.axios.post(this.$apiURI + 'users/login', {
+            app.axios.post(app.$apiURI + 'users/login', {
                 email: details.email,
                 password: details.password
             }).then(res => {
@@ -56,7 +58,7 @@ const mutations = {
     [AUTH_SUCCESS]: (state, res) => {
         state.status = "success";
         state.token = res.token;
-        this.axios.defaults.headers.common['Authorization'] = res.token
+        app.axios.defaults.headers.common['Authorization'] = res.token
         state.hasLoadedOnce = true;
     },
     [AUTH_ERROR]: state => {

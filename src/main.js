@@ -12,9 +12,11 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$apiURI = "http://localhost:3000/";
 
-new Vue({
+const app = new Vue({
   vuetify,
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+export default app;

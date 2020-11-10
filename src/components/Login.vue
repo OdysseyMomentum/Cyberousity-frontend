@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import {AUTH_REQUEST} from "@/store/actions/auth";
+
 export default {
   name: 'Login',
   data: () => ({
@@ -100,18 +102,12 @@ export default {
     },
     login(details) {
       this.isLoggingIn = true;
-      // Login
-      this.axios.post(this.$apiURI + 'users/login', {
-        email: details.email,
-        password: details.password
-      }).then(res => {
-        if (res.status === 200) {
-          console.log('User was logged in!');
-          this.isLoggingIn = false;
-        }
-      }).catch(e => {
-        console.log('Login failed!' + e);
+      this.$store.dispatch(AUTH_REQUEST, details)
+      .then(() =>{
         this.isLoggingIn = false;
+      }).catch(e => {
+        this.isLoggingIn = false;
+        console.log(e);
       });
     }
   }

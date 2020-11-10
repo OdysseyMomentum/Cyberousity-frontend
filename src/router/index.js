@@ -20,8 +20,19 @@ const routes = [
   }
 ]
 
+const loginRoute = '/';
+const publicRoutes = [loginRoute];
+
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((before, to, next) => {
+  if (!publicRoutes.includes(to) || localStorage.getItem('user')) {
+    next();
+  } else {
+    return next(loginRoute);
+  }
 })
 
 export default router

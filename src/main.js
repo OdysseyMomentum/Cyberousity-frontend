@@ -5,8 +5,13 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
+import VueCookies from 'vue-cookies';
 
 Vue.use(VueAxios, axios);
+Vue.use(VueCookies);
+
+// set default config
+Vue.$cookies.config('7d');
 
 Vue.config.productionTip = false;
 

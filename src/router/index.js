@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import app from "@/main";
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((before, to, next) => {
-  if (publicPaths.includes(to.path) || localStorage.getItem('user-token')) {
+  if (publicPaths.includes(to.path) || localStorage.getItem('user-token') || app.$cookies.get('user-token')) {
     next();
   } else {
     return next({path: loginPath});

@@ -5,7 +5,6 @@ import {
     AUTH_SUCCESS,
     AUTH_LOGOUT
 } from "../actions/auth";
-import {USER_REQUEST} from "@/store/actions/user";
 import app from "@/main";
 
 const state = {
@@ -20,7 +19,7 @@ const getters = {
 };
 
 const actions = {
-    [AUTH_REQUEST]: ({ commit, dispatch }, details) => {
+    [AUTH_REQUEST]: ({ commit }, details) => {
         return new Promise((resolve, reject) => {
             commit(AUTH_REQUEST);
             // Login by requesting the API
@@ -29,13 +28,18 @@ const actions = {
                 password: details.password
             }).then(res => {
                 if (res.status === 200) {
+                    // Set the user token and resolve
+                    app.axios.defaults.headers.common['Authorization'] = res.data.token
+                    // Save in local storage and cookies
+                    localStorage.setItem("user-token", res.data.token);
+                    app.$cookies.set('user-token', res.data.token);
+                    console.log('User was logged in!');
                     commit(AUTH_SUCCESS, res);
-                    dispatch(USER_REQUEST);
                     resolve(res);
                 }
             }).catch(e => {
-                commit(AUTH_ERROR, e);
                 localStorage.removeItem("user-token");
+                commit(AUTH_ERROR, e);
                 reject(e);
             });
         });
@@ -43,7 +47,7 @@ const actions = {
     [AUTH_LOGOUT]: ({ commit }) => {
         return new Promise(resolve => {
             commit(AUTH_LOGOUT);
-            app.localStorage.removeItem("user-token");
+            localStorage.removeItem("user-token");
             resolve();
         });
     }
@@ -57,9 +61,6 @@ const mutations = {
         state.status = "success";
         state.token = res.token;
         state.hasLoadedOnce = true;
-        app.localStorage.setItem("user-token", res.data.token);
-        app.axios.defaults.headers.common['Authorization'] = res.data.token
-        console.log('User was logged in!');
     },
     [AUTH_ERROR]: state => {
         state.status = "error";

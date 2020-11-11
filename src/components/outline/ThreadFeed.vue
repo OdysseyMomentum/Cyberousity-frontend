@@ -14,10 +14,13 @@ export default {
 name: "ThreadFeed",
   // components: {Thread},
   created() {
-    console.log(this.localStorage.getItem("user-token"));
-    this.$store.dispatch(USER_REQUEST, {method: 'get', url: `${this.$apiURI}threads`, headers: {'Authorization': this.localStorage.getItem('user-token')}})
+    this.$store.dispatch(USER_REQUEST, {method: 'get', url: `${this.$apiURI}threads`})
       .then(res => {
-        this.threads = res;
+        if (res) {
+          console.log('Threads received!')
+          this.threads = res;
+        }
+
       }).catch(e => {
         console.log(e);
     })

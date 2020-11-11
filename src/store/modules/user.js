@@ -13,6 +13,7 @@ const actions = {
     // Pass a requester function in the payload
     [USER_REQUEST]: ({ commit, dispatch }, config) => {
         commit(USER_REQUEST);
+        app.axios.defaults.headers.common['Authorization'] = 'Bearer ' +  app.$cookies.get('user-token');
         app.axios.request(config)
         .then(res => {
             commit(USER_SUCCESS, res);

@@ -3,6 +3,7 @@
     rounded
     outlined
     elevation="1"
+    :width="this.width"
   >
     <v-container fluid>
       <!-- Header -->
@@ -92,6 +93,7 @@ import {AUTH_LOGOUT} from "@/store/actions/auth";
 
 export default {
   name: "ThreadEditor",
+  props: ['width'],
   data: () => ({
     valid: true,
     isPosting: false,

@@ -67,7 +67,7 @@ name: "ThreadFeed",
         case 'sm': return 400
         case 'md': return 400
         case 'lg': return 400
-        case 'xl': return 500
+        case 'xl': return 642
       }
       return 1000
     }

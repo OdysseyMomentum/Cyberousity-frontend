@@ -17,7 +17,7 @@ const actions = {
             app.axios.defaults.headers.common['Authorization'] = 'Bearer ' +  app.$cookies.get('user-token');
             app.axios.request(config)
                 .then(res => {
-                    commit(USER_SUCCESS, res);
+                    commit(USER_SUCCESS);
                     resolve(res);
                 })
                 .catch(e => {
@@ -33,9 +33,8 @@ const mutations = {
     [USER_REQUEST]: state => {
         state.status = "loading";
     },
-    [USER_SUCCESS]: (state, res) => {
+    [USER_SUCCESS]: state => {
         state.status = "success";
-        console.log(res);
         // Vue.set(state, "profile", res);
     },
     [USER_ERROR]: state => {

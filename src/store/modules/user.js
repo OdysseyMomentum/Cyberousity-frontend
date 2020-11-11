@@ -2,7 +2,7 @@ import { USER_REQUEST, USER_ERROR, USER_SUCCESS } from "../actions/user";
 import { AUTH_LOGOUT } from "../actions/auth";
 import app from "@/main";
 
-const state = { status: "", profile: {} };
+const state = { status: "", profile: {}};
 
 const getters = {
     getProfile: state => state.profile,

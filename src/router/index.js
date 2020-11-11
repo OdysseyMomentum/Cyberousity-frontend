@@ -14,7 +14,12 @@ const routes = [
   {
     path: '/feed',
     name: 'Feed',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Feed.vue')
+    component: () => import('../views/Feed.vue')
+  },
+  {
+    path: '/submit',
+    name: 'Submit',
+    component: () => import('../views/Submit')
   }
 ]
 
@@ -29,7 +34,8 @@ router.beforeEach((before, to, next) => {
   if (publicPaths.includes(to.path) || localStorage.getItem('user-token') || app.$cookies.get('user-token')) {
     next();
   } else {
-    return next({path: loginPath});
+    console.log('Unauthorised, falling back!')
+    return next({name: 'Home'});
   }
 })
 

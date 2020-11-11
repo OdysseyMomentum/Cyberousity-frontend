@@ -16,6 +16,7 @@
               hide-details
               prepend-icon="mdi-magnify"
               single-line
+              placeholder="Search"
           ></v-text-field>
         <v-spacer></v-spacer>
 

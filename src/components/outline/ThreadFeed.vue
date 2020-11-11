@@ -1,5 +1,5 @@
 <template>
-<v-content>
+<div>
 <!--  Write a post -->
   <v-row justify="center">
     <v-col align="center">
@@ -8,6 +8,7 @@
             elevation="1"
         >
           <v-text-field
+              @click="goTo('/submit')"
               placeholder="Write a post"
               color="primary"
               hide-details
@@ -30,12 +31,13 @@
   <v-row v-for="thread in this.threads" :key="thread._id">
     <Thread :content="{thread}"></Thread>
   </v-row>
-</v-content>
+</div>
 </template>
 
 <script>
 import {USER_REQUEST} from "@/store/actions/user";
 import Thread from "@/components/Thread";
+import {AUTH_LOGOUT} from "@/store/actions/auth";
 
 export default {
 name: "ThreadFeed",
@@ -50,11 +52,17 @@ name: "ThreadFeed",
 
       }).catch(e => {
         console.log(e);
+        this.$store.dispatch(AUTH_LOGOUT);
     })
   },
   data: () => ({
     threads: []
   }),
+  methods: {
+    goTo(path) {
+      this.$router.push({path})
+    }
+  }
 
 }
 </script>

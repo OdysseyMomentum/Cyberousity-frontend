@@ -10,20 +10,22 @@ const getters = {
 };
 
 const actions = {
-    // Pass a requester function in the payload
+    // Pass the configuration for the request
     [USER_REQUEST]: ({ commit, dispatch }, config) => {
-        commit(USER_REQUEST);
-        app.axios.defaults.headers.common['Authorization'] = 'Bearer ' +  app.$cookies.get('user-token');
-        app.axios.request(config)
-        .then(res => {
-            commit(USER_SUCCESS, res);
-            return res;
+        return new Promise((resolve, reject) => {
+            commit(USER_REQUEST);
+            app.axios.defaults.headers.common['Authorization'] = 'Bearer ' +  app.$cookies.get('user-token');
+            app.axios.request(config)
+                .then(res => {
+                    commit(USER_SUCCESS, res);
+                    resolve(res);
+                })
+                .catch(e => {
+                    commit(USER_ERROR);
+                    dispatch(AUTH_LOGOUT);
+                    reject(new Error('Bad access:' + e));
+                });
         })
-        .catch(() => {
-            commit(USER_ERROR);
-            // Unauthorised access
-            dispatch(AUTH_LOGOUT);
-        });
     }
 };
 

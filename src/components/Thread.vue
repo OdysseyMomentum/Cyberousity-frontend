@@ -1,14 +1,16 @@
 <template>
-<v-card>
-  <v-card-title> {{ content.title }} </v-card-title>
-  <v-card-text> {{ content.body }} </v-card-text>
+<v-card :width="this.width">
+  <v-card-title> {{ thread.title }} </v-card-title>
+  <v-card-text> {{ thread.body }} </v-card-text>
 </v-card>
 </template>
 
 <script>
 export default {
   name: "Thread",
-  props: ['content']
+  props: ['thread', 'width'],
+  created() {
+  }
 }
 </script>
 

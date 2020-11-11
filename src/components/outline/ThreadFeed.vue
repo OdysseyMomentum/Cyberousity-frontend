@@ -6,6 +6,7 @@
         <v-toolbar
             dense
             elevation="1"
+            :width="postWidth"
         >
           <v-text-field
               @click="goTo('/submit')"
@@ -29,7 +30,9 @@
 
 <!-- Load all the threads -->
   <v-row v-for="thread in this.threads" :key="thread._id">
-    <Thread :content="{thread}"></Thread>
+    <v-col align="center">
+      <Thread :thread="thread" :width="postWidth"></Thread>
+    </v-col>
   </v-row>
 </div>
 </template>
@@ -47,9 +50,8 @@ name: "ThreadFeed",
       .then(res => {
         if (res) {
           console.log('Threads received!')
-          this.threads = res;
+          this.threads = res.data;
         }
-
       }).catch(e => {
         console.log("Could not load the threads: " + e);
         this.$store.dispatch(AUTH_LOGOUT);
@@ -58,6 +60,18 @@ name: "ThreadFeed",
   data: () => ({
     threads: []
   }),
+  computed: {
+    postWidth () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 350
+        case 'sm': return 400
+        case 'md': return 400
+        case 'lg': return 400
+        case 'xl': return 500
+      }
+      return 1000
+    }
+  },
   methods: {
     goTo(path) {
       this.$router.push({path})

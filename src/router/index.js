@@ -45,7 +45,9 @@ const isAuth = function() {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (!isAuth()) {
+    if (isAuth()) {
+      next()
+    } else {
       next('/login')
     }
   } else {

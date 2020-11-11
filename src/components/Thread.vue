@@ -8,9 +8,7 @@
 <script>
 export default {
   name: "Thread",
-  props: {
-    content: {required: true}
-  },
+  props: ['content']
 }
 </script>
 

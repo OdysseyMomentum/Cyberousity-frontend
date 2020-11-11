@@ -22,18 +22,18 @@ const routes = [
   }
 ]
 
-const loginPage = 'Login';
-const publicPages = [loginPage];
+const loginPath = '/';
+const publicPaths = [loginPath];
 
 const router = new VueRouter({
   routes
 })
 
 router.beforeEach((before, to, next) => {
-  if (!publicPages.includes(to.path) || localStorage.getItem('user-token')) {
+  if (publicPaths.includes(to.path) || localStorage.getItem('user-token')) {
     next();
   } else {
-    return next({name: loginPage});
+    return next({path: loginPath});
   }
 })
 

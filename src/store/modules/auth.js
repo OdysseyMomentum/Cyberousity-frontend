@@ -29,8 +29,6 @@ const actions = {
                 password: details.password
             }).then(res => {
                 if (res.status === 200) {
-                    console.log('User was logged in!');
-                    localStorage.setItem("user-token", res.token);
                     commit(AUTH_SUCCESS, res);
                     dispatch(USER_REQUEST);
                     resolve(res);
@@ -45,7 +43,7 @@ const actions = {
     [AUTH_LOGOUT]: ({ commit }) => {
         return new Promise(resolve => {
             commit(AUTH_LOGOUT);
-            localStorage.removeItem("user-token");
+            app.localStorage.removeItem("user-token");
             resolve();
         });
     }
@@ -58,8 +56,10 @@ const mutations = {
     [AUTH_SUCCESS]: (state, res) => {
         state.status = "success";
         state.token = res.token;
-        app.axios.defaults.headers.common['Authorization'] = res.token
         state.hasLoadedOnce = true;
+        app.localStorage.setItem("user-token", res.data.token);
+        app.axios.defaults.headers.common['Authorization'] = res.data.token
+        console.log('User was logged in!');
     },
     [AUTH_ERROR]: state => {
         state.status = "error";

@@ -21,7 +21,7 @@ const actions = {
         })
         .catch(() => {
             commit(USER_ERROR);
-            // if resp is unauthorized, logout, to
+            // Unauthorised access
             dispatch(AUTH_LOGOUT);
         });
     }

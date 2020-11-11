@@ -38,7 +38,6 @@ const actions = {
                     resolve(res);
                 }
             }).catch(e => {
-                localStorage.removeItem("user-token");
                 commit(AUTH_ERROR, e);
                 reject(e);
             });
@@ -48,6 +47,7 @@ const actions = {
         return new Promise(resolve => {
             commit(AUTH_LOGOUT);
             localStorage.removeItem("user-token");
+            app.$cookies.remove('user-token');
             resolve();
         });
     }

@@ -1,18 +1,45 @@
 <template>
-<div>
-  <v-row >
-<!--    <Thread :content="threads[0]"></Thread>-->
+<v-content>
+<!--  Write a post -->
+  <v-row justify="center">
+    <v-col align="center">
+        <v-toolbar
+            dense
+            elevation="1"
+        >
+          <v-text-field
+              placeholder="Write a post"
+              color="primary"
+              hide-details
+              prepend-icon="mdi-account-circle"
+              single-line
+          ></v-text-field>
+
+          <v-btn icon>
+            <v-icon>mdi-attachment</v-icon>
+          </v-btn>
+
+          <v-btn icon>
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </v-toolbar>
+    </v-col>
   </v-row>
-</div>
+
+<!-- Load all the threads -->
+  <v-row v-for="thread in this.threads" :key="thread._id">
+    <Thread :content="{thread}"></Thread>
+  </v-row>
+</v-content>
 </template>
 
 <script>
 import {USER_REQUEST} from "@/store/actions/user";
-// import Thread from "@/components/Thread";
+import Thread from "@/components/Thread";
 
 export default {
 name: "ThreadFeed",
-  // components: {Thread},
+  components: {Thread},
   created() {
     this.$store.dispatch(USER_REQUEST, {method: 'get', url: `${this.$apiURI}threads`})
       .then(res => {

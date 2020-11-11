@@ -250,6 +250,7 @@ export default {
       this.$store.dispatch(AUTH_REQUEST, details)
           .then(() =>{
             this.isRegistering = false;
+            this.$router.push('/feed');
           }).catch(e => {
         this.isRegistering = false;
         console.log(e);

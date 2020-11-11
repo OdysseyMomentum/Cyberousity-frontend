@@ -13,25 +13,27 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/feed',
+    name: 'Feed',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Feed.vue')
   }
 ]
 
-const loginRoute = '/';
-const publicRoutes = [loginRoute];
+const loginPage = 'Login';
+const publicPages = [loginPage];
 
 const router = new VueRouter({
   routes
 })
 
 router.beforeEach((before, to, next) => {
-  if (!publicRoutes.includes(to) || localStorage.getItem('user')) {
+  if (!publicPages.includes(to.path) || localStorage.getItem('user-token')) {
     next();
   } else {
-    return next(loginRoute);
+    return next({name: loginPage});
   }
 })
 

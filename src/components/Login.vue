@@ -105,6 +105,7 @@ export default {
       this.$store.dispatch(AUTH_REQUEST, details)
       .then(() =>{
         this.isLoggingIn = false;
+        this.$router.push('/feed');
       }).catch(e => {
         this.isLoggingIn = false;
         console.log(e);

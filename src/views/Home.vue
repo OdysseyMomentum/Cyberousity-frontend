@@ -21,7 +21,7 @@
           </v-col>
 
           <v-col class="pa-10">
-            <LoginPad />
+            <AccessPad />
           </v-col>
         </v-row>
       </v-container>
@@ -68,14 +68,13 @@
 <script>
 // @ is an alias to /src
 
-// import NavigationBar from "@/components/outline/NavigationBar";
 import WelcomeSign from "@/components/outline/WelcomeSign";
-import LoginPad from "@/components/AccessPad";
+import AccessPad from "@/components/AccessPad";
 
 export default {
   name: 'Home',
   components: {
-    LoginPad,
+    AccessPad,
     WelcomeSign,
     // NavigationBar
   },

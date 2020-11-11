@@ -49,8 +49,11 @@ import Login from "@/components/Login";
 import Register from "@/components/Register";
 
 export default {
-name: "LoginPad",
+name: "AccessPad",
   components: {Register, Login},
+  created() {
+
+  },
   data: () => ({
     isRegistering: false,
   }),

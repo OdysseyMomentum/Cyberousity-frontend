@@ -73,6 +73,8 @@ import {AUTH_REQUEST} from "@/store/actions/auth";
 
 export default {
   name: 'Login',
+  created() {
+  },
   data: () => ({
     isLoggingIn: false,
     valid: true,

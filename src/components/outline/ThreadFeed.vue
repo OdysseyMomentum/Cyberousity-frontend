@@ -51,7 +51,7 @@ name: "ThreadFeed",
         }
 
       }).catch(e => {
-        console.log(e);
+        console.log("Could not load the threads: " + e);
         this.$store.dispatch(AUTH_LOGOUT);
     })
   },

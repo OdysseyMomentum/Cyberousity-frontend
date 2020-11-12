@@ -15,7 +15,8 @@ Vue.$cookies.config('7d');
 
 Vue.config.productionTip = false;
 
-Vue.prototype.$apiURI = "http://3.12.85.177:8442/";
+// Vue.prototype.$apiURI = "http://3.12.85.177:8442/";
+Vue.prototype.$apiURI = "http://localhost:3000/";
 
 const app = new Vue({
   vuetify,

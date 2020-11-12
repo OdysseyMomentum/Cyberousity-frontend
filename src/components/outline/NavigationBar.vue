@@ -20,7 +20,7 @@
           ></v-text-field>
         <v-spacer></v-spacer>
 
-        <v-btn icon>
+        <v-btn @click="logout" icon>
           <v-icon>mdi-export</v-icon>
         </v-btn>
       </v-toolbar>
@@ -28,11 +28,17 @@
 </template>
 
 <script>
+import {AUTH_LOGOUT} from "@/store/actions/auth";
+
 export default {
 name: "NavigationBar",
   methods: {
     goTo(path) {
       this.$router.push({ path })
+    },
+    logout() {
+      this.$store.dispatch(AUTH_LOGOUT);
+      this.$router.push('/');
     }
   }
 }

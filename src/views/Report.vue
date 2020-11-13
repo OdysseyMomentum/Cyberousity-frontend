@@ -20,11 +20,11 @@ name: "Report",
   computed: {
     formWidth () {
       switch (this.$vuetify.breakpoint.name) {
-        case 'xs': return 350
-        case 'sm': return 400
-        case 'md': return 576
-        case 'lg': return 600
-        case 'xl': return 642
+        case 'xs': return 300
+        case 'sm': return 600
+        case 'md': return 760
+        case 'lg': return 664
+        case 'xl': return 800
       }
       return 1000
     }

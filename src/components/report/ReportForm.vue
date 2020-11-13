@@ -16,7 +16,7 @@
 
 
     <div v-if="this.page === 1">
-      <FirstDetailsForm :report="report" />
+      <FirstForm :report="report" />
     </div>
 
     <div v-if="this.page === 2">
@@ -91,25 +91,24 @@
 
 <script>
 import report from "@/models/forms/report";
-import FirstDetailsForm from "@/components/report/FirstForm";
 import SecondDetailsForm from "@/components/report/SecondForm";
 import FormThird from "@/components/report/ThirdForm";
 import FourthForm from "@/components/report/FourthForm";
 import FinalForm from "@/components/report/FinalForm";
 import {USER_REQUEST} from "@/store/actions/user";
+import FirstForm from "@/components/report/FirstForm";
 
 export default {
 name: "Report",
-  components: {FinalForm, FourthForm, FormThird, SecondDetailsForm, FirstDetailsForm},
+  components: {FirstForm, FinalForm, FourthForm, FormThird, SecondDetailsForm},
   props: ['width'],
   data: () => ({
-    report: report,
+    report: Object.assign({}, report),
     details: report.details,
     rules: report.rules,
     items: report.items,
     numPages: 6,
     page: 1,
-    width: 0
   }),
   methods: {
     next() {

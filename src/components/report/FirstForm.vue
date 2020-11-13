@@ -86,11 +86,10 @@ import report from "@/models/forms/report";
 import BasicDetailsForm from "@/components/report/BasicDetailsForm";
 
 export default {
-  name: "FirstDetailsForm",
+  name: "FirstForm",
   components: {BasicDetailsForm},
   props: ['report'],
   data: () => ({
-    report: report,
     details: report.details,
     rules: report.rules,
     items: report.items,

@@ -21,7 +21,7 @@
           </v-col>
 
           <v-col class="pa-10">
-            <AccessPad />
+            <AccessPad width="100%" />
           </v-col>
         </v-row>
       </v-container>

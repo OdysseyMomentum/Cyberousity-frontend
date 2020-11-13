@@ -5,6 +5,7 @@
         color="white"
         rounded="lg"
         class="pa-10"
+        :width="this.width"
     >
         <!-- Login here -->
       <v-row>
@@ -19,7 +20,7 @@
       <!-- Register area -->
       <v-row justify="center">
         <v-btn
-            @click="isRegistering = true"
+            @click="openRegister"
             large depressed
             color="secondary"
             min-width="60%"
@@ -30,7 +31,7 @@
     </v-sheet>
 
   <!-- Registering overlay here -->
-  <v-overlay color="white" :value="isRegistering">
+  <v-overlay color="white" :value="this.isRegisterOpen">
     <v-sheet
         elevation="4"
         light
@@ -51,16 +52,20 @@ import Register from "@/components/auth/Register";
 export default {
 name: "AccessPad",
   components: {Register, Login},
+  props: ['width'],
   created() {
-
+    this.isRegisterOpen = false;
   },
   data: () => ({
-    isRegistering: false,
+    isRegisterOpen: false,
   }),
   methods: {
     close() {
-      this.isRegistering = false
+      this.isRegisterOpen = false
     },
+    openRegister() {
+      this.isRegisterOpen = true
+    }
   }
 }
 </script>

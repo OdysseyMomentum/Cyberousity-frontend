@@ -71,17 +71,16 @@
 
 <script>
 
-import report from "@/models/forms/report";
-
 export default {
   name: "BasicDetailsForm",
   props: ['report'],
-  data: () => ({
-    report: report,
-    details: report.details,
-    rules: report.rules,
-    items: report.items,
-  }),
+  data: function() {
+    return ({
+      details: this.report.details,
+      rules: this.report.rules,
+      items: this.report.items,
+    });
+  },
 }
 </script>
 

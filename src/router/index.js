@@ -30,7 +30,18 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
+    meta: {
+      requiresAuth: false,
+    },
     component: () => import('../views/Login')
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    meta: {
+      requiresAuth: false,
+    },
+    component: () => import('../views/Report')
   }
 ]
 

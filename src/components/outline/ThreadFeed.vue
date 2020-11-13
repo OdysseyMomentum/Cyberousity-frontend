@@ -39,7 +39,7 @@
 
 <script>
 import {USER_REQUEST} from "@/store/actions/user";
-import Thread from "@/components/Thread";
+import Thread from "@/components/thread/Thread";
 import {AUTH_LOGOUT} from "@/store/actions/auth";
 
 export default {

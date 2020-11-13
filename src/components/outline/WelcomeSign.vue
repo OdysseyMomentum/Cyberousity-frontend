@@ -21,7 +21,7 @@
           class="pa-0"
       >
         <v-col align="center">
-          <v-btn large color="white" outlined> Report a crime </v-btn>
+          <v-btn @click="goTo('/report')" large color="white" outlined> Report a crime </v-btn>
         </v-col>
       </v-row>
 
@@ -33,7 +33,12 @@
 
 export default {
 name: "WelcomeSign",
-  props: ['caption' ,'header']
+  props: ['caption' ,'header'],
+  methods: {
+    goTo(path) {
+      this.$router.push({ path })
+    }
+  }
 }
 </script>
 

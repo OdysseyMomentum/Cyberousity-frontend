@@ -13,7 +13,7 @@
 
 <script>
 import NavigationBar from "@/components/outline/NavigationBar";
-import ThreadEditor from "@/components/ThreadEditor";
+import ThreadEditor from "@/components/thread/ThreadEditor";
 export default {
   name: "Submit",
   components: {ThreadEditor, NavigationBar},

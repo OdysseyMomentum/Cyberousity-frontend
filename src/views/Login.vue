@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import AccessPad from "@/components/AccessPad";
+import AccessPad from "@/components/auth/AccessPad";
 export default {
 name: "Login",
   components: {AccessPad}

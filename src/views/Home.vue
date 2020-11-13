@@ -69,7 +69,7 @@
 // @ is an alias to /src
 
 import WelcomeSign from "@/components/outline/WelcomeSign";
-import AccessPad from "@/components/AccessPad";
+import AccessPad from "@/components/auth/AccessPad";
 
 export default {
   name: 'Home',

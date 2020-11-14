@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <div class="home color-primary-light">
 <!--    <NavigationBar />-->
     <WelcomeSign header="Welcome to Cyberousity!" caption="Help the community to protected each other from cyber crime"/>
 
-    <TextHeaderContainer :features="features" />
+    <TextTileContainer :features="features" title="What our community offers" />
 
     <Invitation />
 
@@ -21,12 +21,12 @@
 import WelcomeSign from "@/components/outline/home/WelcomeSign";
 import Invitation from "@/components/outline/home/Invitation";
 import Footer from "@/components/outline/home/Footer";
-import TextHeaderContainer from "@/components/outline/home/TextHeaderContainer";
+import TextTileContainer from "@/components/outline/home/TextTileContainer";
 
 export default {
   name: 'Home',
   components: {
-    TextHeaderContainer,
+    TextTileContainer,
     Footer,
     Invitation,
     WelcomeSign,

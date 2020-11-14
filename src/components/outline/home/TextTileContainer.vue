@@ -1,13 +1,20 @@
 <!--class="grey lighten-3"-->
 <template>
+  <v-lazy
+      v-model="isActive"
+      :options="{
+          threshold: .5
+        }"
+      min-height="200"
+      transition="fade-transition"
+  >
   <section
-      id="features"
       class="color-shade-light"
   >
     <div class="py-12"></div>
 
     <v-container class="text-center">
-      <h2 class="display-2 font-weight-bold mb-3">VUETIFY FEATURES</h2>
+      <h2 class="display-2 font-weight-bold mb-3"> {{ title }} </h2>
 
       <v-responsive
           class="mx-auto mb-12"
@@ -31,15 +38,18 @@
     </v-container>
     <div class="py-12"></div>
   </section>
+  </v-lazy>
 </template>
 
 <script>
 import TextTile from "@/components/outline/home/TextTile";
 export default {
-  name: "TextHeaderContainer",
+  name: "TextTileContainer",
   components: {TextTile},
   props: ['features', 'title'],
-
+  data: () => ({
+    isActive: false
+  })
 }
 </script>
 

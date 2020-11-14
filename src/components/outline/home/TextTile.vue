@@ -3,6 +3,8 @@
       class="py-12 px-4"
       color="grey lighten-5"
       flat
+      rounded
+      elevation="4"
   >
     <v-theme-provider dark>
       <div>

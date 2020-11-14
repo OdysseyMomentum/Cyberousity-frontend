@@ -9,6 +9,7 @@
 
         <v-toolbar-title>
           <v-btn @click="goTo('/feed')" text medium> Home </v-btn>
+          <v-btn @click="goTo('/report')" text medium> Report </v-btn>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>

@@ -3,7 +3,7 @@
   <v-lazy
       v-model="isActive"
       :options="{
-          threshold: .5
+          threshold: .4
         }"
       min-height="200"
       transition="fade-transition"
@@ -13,7 +13,7 @@
   >
     <div class="py-12"></div>
 
-    <v-container class="text-center">
+    <v-container class="text-center" :width="width">
       <h2 class="display-2 font-weight-bold mb-3"> {{ title }} </h2>
 
       <v-responsive
@@ -25,16 +25,13 @@
         <v-divider></v-divider>
       </v-responsive>
 
-      <v-row>
-        <v-col
-            v-for="({ icon, title, text }, i) in features"
+        <v-row
+            v-for="({ icon, title, text, picture }, i) in features"
             :key="i"
-            cols="12"
-            md="4"
+            justify="center"
         >
-          <TextTile :title="title" :icon="icon" :text="text" />
-        </v-col>
-      </v-row>
+            <TextTile class="pb-10" :title="title" :icon="icon" :text="text" :width="width" />
+        </v-row>
     </v-container>
     <div class="py-12"></div>
   </section>
@@ -46,7 +43,7 @@ import TextTile from "@/components/outline/home/TextTile";
 export default {
   name: "TextTileContainer",
   components: {TextTile},
-  props: ['features', 'title'],
+  props: ['features', 'title', 'width'],
   data: () => ({
     isActive: false
   })

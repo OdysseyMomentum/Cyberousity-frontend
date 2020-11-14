@@ -1,18 +1,23 @@
 <template>
-<v-container>
+<div class="color-shade-light">
+<v-container class="pt-12">
   <v-row justify="center">
     <v-col>
-      <AccessPad :width="formWidth"/>
+      <Invitation />
     </v-col>
   </v-row>
 </v-container>
+<div class="py-14" />
+<Footer />
+</div>
 </template>
 
 <script>
-import AccessPad from "@/components/auth/AccessPad";
+import Invitation from "@/components/outline/home/Invitation";
+import Footer from "@/components/outline/home/Footer";
 export default {
 name: "Login",
-  components: {AccessPad},
+  components: {Footer, Invitation},
   methods: {
     formWidth () {
       switch (this.$vuetify.breakpoint.name) {

@@ -21,7 +21,7 @@
           class="pa-0"
       >
         <v-col align="center">
-          <v-btn @click="goTo('/report')" large color="white" outlined> Report a crime </v-btn>
+          <v-btn @click="goTo('/login')" large color="white" outlined> Join the community </v-btn>
         </v-col>
       </v-row>
 

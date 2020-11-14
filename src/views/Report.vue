@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="color-shade-light">
   <FancyHeader header="Report a crime" caption="You are not only helping yourself but you help also others by sharing"/>
   <v-container>
     <v-row justify="center">

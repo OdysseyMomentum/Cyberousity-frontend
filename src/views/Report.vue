@@ -1,5 +1,6 @@
 <template>
 <div class="lighten-4 grey">
+  <NavigationBar />
   <FancyHeader picture="https://img.freepik.com/free-photo/white-paper-canvas-texture-background-design-backdrop-overlay-design_1962-68.jpg?size=626&ext=jpg" header="Report a crime" caption="You are not only helping yourself but you help also others by sharing"/>
   <v-container>
     <v-row justify="center">
@@ -14,9 +15,10 @@
 <script>
 import FancyHeader from "@/components/outline/FancyHeader";
 import ReportForm from "@/components/report/ReportForm";
+import NavigationBar from "@/components/outline/NavigationBar";
 export default {
 name: "Report",
-  components: {FancyHeader, ReportForm},
+  components: {NavigationBar, FancyHeader, ReportForm},
   computed: {
     formWidth () {
       switch (this.$vuetify.breakpoint.name) {

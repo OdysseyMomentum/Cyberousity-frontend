@@ -16,7 +16,7 @@
           <v-btn color="primary" class="ml-2" @click="goTo('/report')"  medium> Report </v-btn>
           <v-btn color="primary" class="ml-2" @click="goTo('/tools')"  medium> Tools </v-btn>
           <v-btn color="primary" class="ml-2" @click="goTo('/feed')"  medium> Forum </v-btn>
-
+          <v-btn color="primary" class="ml-2" @click="goTo('/wiki')"  medium> Wiki </v-btn>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -29,6 +29,7 @@
           ></v-text-field>
         <v-spacer></v-spacer>
 
+        <v-btn color="primary" class="ml-2" @click="goTo('/login')"  medium> Login </v-btn>
         <v-btn color="primary" @click="logout" icon>
           <v-icon>mdi-export</v-icon>
         </v-btn>

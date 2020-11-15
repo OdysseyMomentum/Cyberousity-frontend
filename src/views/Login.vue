@@ -1,5 +1,5 @@
 <template>
-<div class="color-shade-light">
+<div class="grey lighten-4 ">
 <v-container class="pt-12">
   <v-row justify="center">
     <v-col>

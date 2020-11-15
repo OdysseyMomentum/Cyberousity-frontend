@@ -50,7 +50,15 @@ const routes = [
       requiresAuth: false,
     },
     component: () => import('../views/Tools')
-  }
+  },
+  {
+    path: '/wiki',
+    name: 'Wiki',
+    meta: {
+      requiresAuth: false,
+    },
+    component: () => import('../views/Wiki')
+  },
 ]
 
 

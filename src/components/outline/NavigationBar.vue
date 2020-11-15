@@ -12,8 +12,10 @@
 <!--        </v-app-bar-nav-icon>-->
 
         <v-toolbar-title>
-          <v-btn color="primary" class="ml-2" @click="goTo('/feed')"  medium> Home </v-btn>
+          <v-btn color="primary" class="ml-2" @click="goTo('/')"  medium> Home </v-btn>
           <v-btn color="primary" class="ml-2" @click="goTo('/report')"  medium> Report </v-btn>
+          <v-btn color="primary" class="ml-2" @click="goTo('/tools')"  medium> Tools </v-btn>
+
         </v-toolbar-title>
 
         <v-spacer></v-spacer>

@@ -66,7 +66,7 @@
 <script>
 
 export default {
-name: "WelcomeSign",
+name: "Slider",
   props: ['caption' ,'header', 'slides'],
   methods: {
     goTo(path) {

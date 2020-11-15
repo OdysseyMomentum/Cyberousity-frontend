@@ -42,6 +42,14 @@ const routes = [
       requiresAuth: false,
     },
     component: () => import('../views/Report')
+  },
+  {
+    path: '/tools',
+    name: 'Tools',
+    meta: {
+      requiresAuth: false,
+    },
+    component: () => import('../views/Tools')
   }
 ]
 

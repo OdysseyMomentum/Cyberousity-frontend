@@ -4,7 +4,7 @@
     <NavigationBar />
 
 <!--    <NavigationBar />-->
-    <WelcomeSign :slides="slides" header="" caption="We are a community of companies, private individuals, IT-specialists, and the police helping one-another to combat cybercrime."/>
+    <Slider :slides="slides" />
 
     <TextTileContainer width="670" :features="features" title="What our community offers" />
 
@@ -21,7 +21,7 @@
 <script>
 // @ is an alias to /src
 
-import WelcomeSign from "@/components/outline/home/WelcomeSign";
+import Slider from "@/components/outline/home/Slider";
 import Invitation from "@/components/outline/home/Invitation";
 import Footer from "@/components/outline/home/Footer";
 import TextTileContainer from "@/components/outline/home/TextTileContainer";
@@ -34,7 +34,7 @@ export default {
     TextTileContainer,
     Footer,
     Invitation,
-    WelcomeSign,
+    Slider
     // NavigationBar
   },
   data: () => ({

@@ -1,6 +1,6 @@
 <template>
 <div class="lighten-4 grey">
-  <FancyHeader header="Report a crime" caption="You are not only helping yourself but you help also others by sharing"/>
+  <FancyHeader picture="https://img.freepik.com/free-photo/white-paper-canvas-texture-background-design-backdrop-overlay-design_1962-68.jpg?size=626&ext=jpg" header="Report a crime" caption="You are not only helping yourself but you help also others by sharing"/>
   <v-container>
     <v-row justify="center">
       <v-col align="center">

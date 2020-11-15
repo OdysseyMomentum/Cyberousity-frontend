@@ -46,7 +46,8 @@
               <div class="display-3">
                 {{ title }}
               </div>
-              <div class="display-3 subtitle-1">
+
+              <div class="display-3 subtitle-1 text-center" style="width: 100%">
                 {{ description }}
               </div>
             </v-row>

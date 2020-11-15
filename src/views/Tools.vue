@@ -3,7 +3,9 @@
   <NavigationBar />
   <Slider :slides="slides" />
   <h2 class="display-2 font-weight-bold ma-3"> Top used tools </h2>
-  <ToolContainer title="Website word checker" description="Test for cyber related words used in the website" caption="Very useful!" />
+  <ToolContainer title="Website word checker" description="Test for cyber related words used in the website" caption="Very useful!">
+    <Scraper />
+  </ToolContainer>
 </div>
 </template>
 
@@ -11,9 +13,10 @@
 import NavigationBar from "@/components/outline/NavigationBar";
 import Slider from "@/components/outline/home/Slider";
 import ToolContainer from "@/components/outline/ToolContainer";
+import Scraper from "@/components/tools/Scraper";
 export default {
 name: "Tools",
-  components: {ToolContainer, Slider, NavigationBar},
+  components: {Scraper, ToolContainer, Slider, NavigationBar},
   data: () => ({
     slides: [
       {

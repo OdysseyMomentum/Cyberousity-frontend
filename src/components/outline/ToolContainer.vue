@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-card
     class="mx-auto"
     max-width="400"
@@ -17,41 +18,50 @@
       <v-btn
         text
         color="secondary"
+        @click="isUsing = true"
       >
         Try out
       </v-btn>
     </v-card-actions>
 
-    <v-expand-transition>
-      <v-card
-        v-if="reveal"
-        class="transition-fast-in-fast-out v-card--reveal"
-        style="height: 100%;"
-      >
-        <v-card-text class="pb-0">
-          <p class="display-1 text--primary">
-            Origin
-          </p>
-          <p>late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’ </p>
-        </v-card-text>
-        <v-card-actions class="pt-0">
-          <v-btn
-            text
-            color="teal accent-4"
-            @click="reveal = false"
-          >
-            Close
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-expand-transition>
   </v-card>
+    <!-- Registering overlay here -->
+    <v-overlay color="white" :value="this.isUsing">
+      <v-sheet
+        elevation="4"
+        light
+        rounded="lg"
+        class="pa-5"
+      >
+        <!-- Header -->
+        <v-row justify="center">
+          <v-col class="pt-0">
+            <h1> {{ title }} </h1>
+          </v-col>
+          <!--  Close    -->
+          <v-col align="right" class="pt-0 pr-4">
+            <v-btn icon @click="isUsing = false">
+              <v-icon medium> mdi-close-thick </v-icon>
+            </v-btn>
+
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <slot></slot>
+        </v-row>
+      </v-sheet>
+    </v-overlay>
+  </div>
 </template>
 
 <script>
 export default {
 name: "ToolContainer",
-  props: ['name', 'description', 'caption']
+  props: ['name', 'description', 'caption', 'title'],
+  data: () => ({
+    isUsing: false
+  })
 }
 
 </script>

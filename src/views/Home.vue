@@ -69,8 +69,8 @@ export default {
         picture: ''
       },
       {
-        title: 'Do you wish protect yourself?',
-        description: 'Try the security check-list to see if your system is safe. Easy-to-use guides and extentions are provided as solutions.',
+        title: 'Do you wish protect to yourself?',
+        description: 'Try the security check-list to see if your system is safe. Easy-to-use guides and extensions are provided as solutions.',
         picture: ''
       },
       {

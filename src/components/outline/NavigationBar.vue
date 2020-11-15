@@ -2,26 +2,31 @@
     <div>
 <!--      User prominent for cool effect -->
       <v-toolbar
-          dark
-          color="primary"
+          light
+          color=""
+          class="lighten-0"
       >
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-img max-width="300" :src="require('@/assets/pictures/logo.svg')" />
+
+<!--        <v-app-bar-nav-icon>-->
+<!--        </v-app-bar-nav-icon>-->
 
         <v-toolbar-title>
-          <v-btn @click="goTo('/feed')" text medium> Home </v-btn>
-          <v-btn @click="goTo('/report')" text medium> Report </v-btn>
+          <v-btn color="primary" class="ml-2" @click="goTo('/feed')"  medium> Home </v-btn>
+          <v-btn color="primary" class="ml-2" @click="goTo('/report')"  medium> Report </v-btn>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
           <v-text-field
               hide-details
+              color="primary"
               prepend-icon="mdi-magnify"
               single-line
               placeholder="Search"
           ></v-text-field>
         <v-spacer></v-spacer>
 
-        <v-btn @click="logout" icon>
+        <v-btn color="primary" @click="logout" icon>
           <v-icon>mdi-export</v-icon>
         </v-btn>
       </v-toolbar>

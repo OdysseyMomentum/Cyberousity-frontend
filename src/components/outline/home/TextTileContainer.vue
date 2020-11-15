@@ -9,7 +9,7 @@
       transition="fade-transition"
   >
   <section
-      class="color-shade-light"
+      class="lighten-4 grey"
   >
     <div class="py-12"></div>
 
@@ -30,7 +30,7 @@
             :key="i"
             justify="center"
         >
-            <TextTile class="pb-10" :title="title" :icon="icon" :text="text" :width="width" />
+            <TextTile class="pb-10" :picture="picture" :title="title" :icon="icon" :text="text" :width="width" />
         </v-row>
     </v-container>
     <div class="py-12"></div>

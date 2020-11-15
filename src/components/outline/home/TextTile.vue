@@ -11,6 +11,7 @@
       <v-card
         class="pa-0"
         :width="width/2"
+        tile
       >
 <!--   The avatar tand the text     -->
         <v-col cols="12">
@@ -46,13 +47,13 @@
       <v-card
         class="pa-0"
         :width="width/2"
+        tile
       >
         <v-img
-          lazy-src="https://picsum.photos/id/11/10/6"
+          alt="Image not found"
           height="100%"
-          max-height=""
           :max-width="width/2"
-          src="https://picsum.photos/id/11/500/300"
+          :src="picture"
         ></v-img>
       </v-card>
 
@@ -65,7 +66,12 @@
 <script>
 export default {
   name: "TextTile",
-  props: ['title', 'text', 'icon', 'width']
+  props: ['title', 'text', 'icon', 'width', 'picture'],
+  computed: {
+    getImgUrl(local_url) {
+      return require(local_url)
+    }
+  }
 }
 </script>
 

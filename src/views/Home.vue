@@ -1,16 +1,16 @@
 <template>
-  <div class="home color-shade-light">
+  <div class="home ">
 
     <NavigationBar />
 
 <!--    <NavigationBar />-->
-    <WelcomeSign header="Welcome to Cyberousity!" caption="We are a community of companies, private individuals, IT-specialists, and the police helping one-another to combat cybercrime."/>
+    <WelcomeSign :slides="slides" header="" caption="We are a community of companies, private individuals, IT-specialists, and the police helping one-another to combat cybercrime."/>
 
     <TextTileContainer width="670" :features="features" title="What our community offers" />
 
     <Invitation />
 
-    <Footer />
+    <Footer class="mt-10" />
 
 
 <!--    Footer -->
@@ -38,32 +38,52 @@ export default {
     // NavigationBar
   },
   data: () => ({
-    icons: [
-      'mdi-facebook',
-      'mdi-twitter',
-      'mdi-linkedin',
-      'mdi-instagram',
-    ],
     features: [
       {
         icon: 'mdi-account-group-outline',
-        title: 'Vibrant Community',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-        picture: ''
+        title: 'Get help',
+        text: 'Reaction: recommend specialists to companies based on the problem \n' +
+              ', Provide regular check-ups\n' +
+              ', Users can submit checkup tools, published analysis tools on the cybercrime-data trends**',
+        picture: 'https://i.ibb.co/zbvPG4W/Vibrant-Community.png'
       },
       {
         icon: 'mdi-update',
-        title: 'Frequent Updates',
-        text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
-        picture: ''
+        title: 'Reporting',
+        text: 'The reporting helps the community to stay aware of the current trends and keep the tools up to date and it also ' +
+          'allows the community reach out for each other either anonymously or directly.',
+        picture: 'https://i.ibb.co/0yJHys4/Long-Term-Support.png'
       },
       {
         icon: 'mdi-shield-outline',
-        title: 'Long-term Support',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-        picture: ''
+        title: 'Data-tools',
+        text: 'The community includes many specialists and open source developers which use our free public API to write very handy tools for protection and' +
+          ' spotting dangerous trends.',
+        picture: 'https://i.ibb.co/ZTmKyKc/Frequent-Updates.png'
       },
     ],
+    slides: [
+      {
+        title: 'Were you cyber-attacked?',
+        description: 'We are a community of companies, private individuals, IT-specialists, and the police helping one-another to combat cybercrime.',
+        picture: ''
+      },
+      {
+        title: 'Do you wish protect yourself?',
+        description: 'Try the security check-list to see if your system is safe. Easy-to-use guides and extentions are provided as solutions.',
+        picture: ''
+      },
+      {
+        title: 'What are the current risks?',
+        description: 'Visualizations of the hottest cyber-attack trends can be be found here. Access our API and get real-time access to the anonymously reported incidents.',
+        picture: ''
+      },
+      {
+        title: 'Do you wish to get involved?',
+        description: 'We are open-source: Everyone can contribute: Use our the datasets from our API and come up with new data-analysis tools. You may even suggest new features to the code.',
+        picture: ''
+      },
+    ]
   })
 }
 </script>

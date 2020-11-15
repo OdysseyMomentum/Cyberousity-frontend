@@ -1,7 +1,6 @@
 <template>
 <div>
-  <v-parallax height="400" src="https://cdn.wallpapersafari.com/69/42/RBWcdl.gif">
-    <v-overlay absolute>
+
 
 <!--      <v-row-->
 <!--          align="center"-->
@@ -56,9 +55,9 @@
           </v-sheet>
         </v-carousel-item>
       </v-carousel>
-    </v-overlay>
+<!--    </v-overlay>-->
 
-  </v-parallax>
+<!--  </v-parallax>-->
 
 </div>
 </template>

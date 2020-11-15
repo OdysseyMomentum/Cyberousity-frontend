@@ -16,7 +16,7 @@
     </v-card-text>
     <v-card-actions>
       <v-btn
-        text
+        depressed
         color="secondary"
         @click="isUsing = true"
       >
@@ -26,8 +26,9 @@
 
   </v-card>
     <!-- Registering overlay here -->
-    <v-overlay color="white" :value="this.isUsing">
+    <v-overlay color="white" :value="this.isUsing" absolute>
       <v-sheet
+        width="1000"
         elevation="4"
         light
         rounded="lg"

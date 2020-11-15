@@ -1,7 +1,5 @@
 <template>
 <div>
-
-
 <!--      <v-row-->
 <!--          align="center"-->
 <!--          justify="center"-->
@@ -26,7 +24,7 @@
 <!--        </v-col>-->
 <!--      </v-row>-->
       <v-carousel
-        v-model="model"
+
         light
         class="mt-5 mb-5"
         cycle

@@ -3,9 +3,20 @@
   <NavigationBar />
   <Slider :slides="slides" />
   <h2 class="display-2 font-weight-bold ma-3"> Top used tools </h2>
-  <ToolContainer title="Website word checker" description="Test for cyber crime related words used in the website" caption="Very useful!">
-    <Scraper />
-  </ToolContainer>
+  <v-container class="d-flex justify-center">
+    <v-col>
+      <ToolContainer title="Website word checker" description="Test for cyber crime related words used in the website" caption="Very useful!">
+        <Scraper />
+      </ToolContainer>
+    </v-col>
+    <v-col>
+      <ToolContainer title="Cyber crime tracker" description="See the current trends!" caption="It is important to be careful!">
+        <Trends />
+      </ToolContainer>
+    </v-col>
+  </v-container>
+
+
 </div>
 </template>
 
@@ -14,9 +25,10 @@ import NavigationBar from "@/components/outline/NavigationBar";
 import Slider from "@/components/outline/home/Slider";
 import ToolContainer from "@/components/outline/ToolContainer";
 import Scraper from "@/components/tools/Scraper";
+import Trends from "@/components/tools/Trends";
 export default {
 name: "Tools",
-  components: {Scraper, ToolContainer, Slider, NavigationBar},
+  components: {Trends, Scraper, ToolContainer, Slider, NavigationBar},
   data: () => ({
     slides: [
       {

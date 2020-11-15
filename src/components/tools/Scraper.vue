@@ -42,7 +42,33 @@
       ></v-progress-circular>
     </v-btn>
   </v-row>
+<!-- Table -->
+  <v-row justify="center">
+    <v-col>
 
+    <v-simple-table class="ma-6" v-if="isLoaded" dark >
+        <thead>
+        <tr>
+          <th class="text-left">
+            Word
+          </th>
+          <th class="text-left">
+            Count
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          v-for="item in output"
+          :key="item.word"
+        >
+          <td>{{ item.word }}</td>
+          <td>{{ item.count }}</td>
+        </tr>
+        </tbody>
+    </v-simple-table>
+    </v-col>
+  </v-row>
 </v-col>
 </template>
 
@@ -53,7 +79,9 @@ name: "Scraper",
   data: () => ({
     valid: true,
     url: '',
-    isLoading: false
+    isLoading: false,
+    output: [],
+    isLoaded: false,
   }),
   methods: {
     validate () {
@@ -64,7 +92,9 @@ name: "Scraper",
       this.isLoading = false;
     },
     getOutput() {
-      testWebsite(this.url);
+      this.output = testWebsite(this.url).histogram;
+      console.log('output:' + this.output);
+      this.isLoaded = true;
     }
   }
 }

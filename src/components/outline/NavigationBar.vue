@@ -15,6 +15,7 @@
           <v-btn color="primary" class="ml-2" @click="goTo('/')"  medium> Home </v-btn>
           <v-btn color="primary" class="ml-2" @click="goTo('/report')"  medium> Report </v-btn>
           <v-btn color="primary" class="ml-2" @click="goTo('/tools')"  medium> Tools </v-btn>
+          <v-btn color="primary" class="ml-2" @click="goTo('/feed')"  medium> Forum </v-btn>
 
         </v-toolbar-title>
 

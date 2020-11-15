@@ -15,7 +15,7 @@ const routes = [
     path: '/feed',
     name: 'Feed',
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
     component: () => import('../views/Feed.vue')
   },
@@ -23,7 +23,7 @@ const routes = [
     path: '/submit',
     name: 'Submit',
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
     component: () => import('../views/Submit')
   },

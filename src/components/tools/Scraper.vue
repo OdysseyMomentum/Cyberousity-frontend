@@ -51,6 +51,7 @@ import testWebsite from '@/services/scraper/scraper'
 export default {
 name: "Scraper",
   data: () => ({
+    valid: true,
     url: '',
     isLoading: false
   }),

@@ -3,7 +3,7 @@
   <NavigationBar />
   <Slider :slides="slides" />
   <h2 class="display-2 font-weight-bold ma-3"> Top used tools </h2>
-  <ToolContainer title="Website word checker" description="Test for cyber related words used in the website" caption="Very useful!">
+  <ToolContainer title="Website word checker" description="Test for cyber crime related words used in the website" caption="Very useful!">
     <Scraper />
   </ToolContainer>
 </div>

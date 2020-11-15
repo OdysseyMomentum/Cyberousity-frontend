@@ -2,15 +2,18 @@
 <div>
   <NavigationBar />
   <Slider :slides="slides" />
+  <h2 class="display-2 font-weight-bold ma-3"> Top used tools </h2>
+  <ToolContainer title="Website word checker" description="Test for cyber related words used in the website" caption="Very useful!" />
 </div>
 </template>
 
 <script>
 import NavigationBar from "@/components/outline/NavigationBar";
 import Slider from "@/components/outline/home/Slider";
+import ToolContainer from "@/components/outline/ToolContainer";
 export default {
 name: "Tools",
-  components: {Slider, NavigationBar},
+  components: {ToolContainer, Slider, NavigationBar},
   data: () => ({
     slides: [
       {

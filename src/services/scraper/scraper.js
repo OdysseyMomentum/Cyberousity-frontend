@@ -1,18 +1,23 @@
 
 //Import PythonShell module.
-const {PythonShell} = require('python-shell');
+// const PythonShell = require('python-shell');
 const testWebsite = function(url) {
-  let options = {
-    mode: 'text',
-    pythonOptions: ['-u'], // get print results in real-time
-    scriptPath: 'path/to/my/scripts', //If you are having python_test.py script in same folder, then it's optional.
-    args: [url] //An argument which can be accessed in the script using sys.argv[1]
-  };
-
-  PythonShell.run('python_test.py', options, function (err, result){
-    if (err) throw err;
-    console.log('result: ', result.toString());
-  });
+  console.log(url);
+  // const options = {
+  //   mode: 'text',
+  //   pythonOptions: ['-u'],
+  //   scriptPath: './',
+  //   args: [url]
+  // };
+  // PythonShell.PythonShell.run('main.py', options, function (err, results) {
+  //   if (err) {
+  //     console.log(err)
+  //     throw err
+  //   }
+  //   // results is an array consisting of messages collected during execution
+  //   console.log('results: %j', results);
+  // });
+  return []
 }
 
-exports = testWebsite
+export default testWebsite

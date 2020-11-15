@@ -1,39 +1,35 @@
 <template>
 <div>
   <NavigationBar />
-  <Slider :slides="slides" />
+  <FancyHeader
+    picture="https://img.freepik.com/free-photo/white-paper-canvas-texture-background-design-backdrop-overlay-design_1962-68.jpg?size=626&ext=jpg"
+    header="The community Wiki"
+   caption="Prevention is an important part of dealing with cybercrime. Especially, because the human error is the main source of damage. On this page, users will find a crowd-sourced wiki with articles on, and other educational ressources."
+  />
+  <h2 class="display-2 font-weight-bold ma-3"> Top articles </h2>
+  <v-container class="d-flex justify-center">
+    <v-col>
+      <WikiContainer
+        picture="https://images.rics.org/publishedmedia/exwhvbx08u6y65thzb4f/Scam_cybercrime.jpg"
+        title="How to protect yourself and your money"
+        subtitle="Protecting yourself from crime is not always a trivial task and can cost money, this article will help you to learn the necessary skills"
+      />
+    </v-col>
+    <v-col>
+
+    </v-col>
+  </v-container>
 </div>
 </template>
 
 <script>
 import NavigationBar from "@/components/outline/NavigationBar";
-import Slider from "@/components/outline/home/Slider";
+import WikiContainer from "@/components/outline/WikiContainer";
+import FancyHeader from "@/components/outline/FancyHeader";
 export default {
 name: "Wiki",
-  components: {Slider, NavigationBar},
+  components: {FancyHeader, WikiContainer, NavigationBar},
   data: () => ({
-    slides: [
-      {
-        title: 'Were you cyber-attacked?',
-        description: 'We are a community of companies, private individuals, IT-specialists, and the police helping one-another to combat cybercrime.',
-        picture: ''
-      },
-      {
-        title: 'Do you wish protect to yourself?',
-        description: 'Try the security check-list to see if your system is safe. Easy-to-use guides and extensions are provided as solutions.',
-        picture: ''
-      },
-      {
-        title: 'What are the current risks?',
-        description: 'Visualizations of the hottest cyber-attack trends can be be found here. Access our API and get real-time access to the anonymously reported incidents.',
-        picture: ''
-      },
-      {
-        title: 'Do you wish to get involved?',
-        description: 'We are open-source: Everyone can contribute: Use our the datasets from our API and come up with new data-analysis tools. You may even suggest new features to the code.',
-        picture: ''
-      },
-  ]
   })
 }
 </script>

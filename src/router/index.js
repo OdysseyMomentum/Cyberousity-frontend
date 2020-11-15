@@ -59,6 +59,14 @@ const routes = [
     },
     component: () => import('../views/Wiki')
   },
+  {
+    path: '/help',
+    name: 'Help',
+    meta: {
+      requiresAuth: false,
+    },
+    component: () => import('../views/Help')
+  },
 ]
 
 
